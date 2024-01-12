@@ -69,7 +69,7 @@ app.layout = html.Div(children=[
         html.Li(f"{section}: {count} articles") for section, count in zip(sections, article_counts)
     ]),
 
-    html.H2("5 Newest Articles:"),
+    html.H2("5 Latest Articles:"),
 
     # Create a list of links to the 5 newest articles
     html.Ul([
