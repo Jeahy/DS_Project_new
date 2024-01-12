@@ -1,7 +1,7 @@
 from pymongo import MongoClient
 from dash import dash, dcc, html, callback, Input, Output, State
 
-# Connect to MongoDB using the host machine's IP
+# Connect to MongoDB using the service name from Docker Compose
 client = MongoClient("mongodb://mongodb:27017/")
 
 # Specify the MongoDB collection
