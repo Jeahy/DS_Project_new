@@ -37,6 +37,16 @@ pipeline = [
 
 result = list(collection.aggregate(pipeline))
 
+# Save aggregated data into a new collection
+aggregated_data_collection = db.ny_articles_aggregated_data
+aggregated_data_collection.insert_one({
+    'total_articles': result[0]['total_articles'],
+    'average_word_count': result[0]['average_word_count'],
+    'sections': [{'section': section['_id'], 'count': section['section_count']} for section in result],
+    'newest_articles': result[0]['newest_articles'][:5],
+    'timestamp': datetime.now()
+})
+
 # Extract total number of articles, average word count, sections with counts, and 5 newest articles
 total_articles = result[0]['total_articles']
 average_word_count = result[0]['average_word_count']
