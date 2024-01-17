@@ -4,6 +4,7 @@ from passlib.context import CryptContext
 from pymongo import MongoClient
 from typing import List, Optional
 
+
 #instantiate API using FastAPI, HTTPBasic
 api = FastAPI()
 security = HTTPBasic()
@@ -60,6 +61,9 @@ def get_average_word_count(current_user: str = Depends(get_current_user)):
             detail="Average word count not found",
         )
 
+
+#launch api manually
+#uvicorn main:api --reload
 
 #webpage:    
 #http://localhost:8000/docs
